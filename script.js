@@ -94,3 +94,72 @@
 //   }
 // }
 // loginCheck();
+
+///// 2.1 /////
+
+///// Even numbers from 1 to 20 /////
+
+// for (let i = 1; i < 21; i++) {
+//   if (i % 2 === 0) {
+//     console.log(i);
+//   }
+// }
+
+///// 2.2 /////
+
+///// Total numbers /////
+
+// let userNumber = parseFloat(prompt("Введите число:"));
+// let sum = 0;
+
+// for (let i = 1; i <= userNumber; i++) {
+//   sum += i;
+// }
+
+// alert(sum);
+
+///// 2.3 /////
+
+///// Total of positive and even numbers /////
+
+// let evenPosNumbers = [7, -8, 2, 6, 9, -4, 12, 3, -11, 18];
+// let a = 0;
+
+// evenPosNumbers.forEach((x) => {
+//   if (x > 0 && x % 2 === 0) {
+//     a += x;
+//   }
+// });
+
+// console.log(a);
+
+///// 2.4 /////
+
+///// Division by 3 and 5 from 100 /////
+
+// let division = [];
+
+// for (let i = 1; i < 100; i++) {
+//   if (i % 3 === 0 && i % 5 === 0) {
+//     division.push(i);
+//   }
+// }
+
+// console.log(division);
+
+///// 2.5 /////
+
+///// Biggest and smallest number /////
+
+// let bigSmallNumber = [2, -8, 1, 5, 4, -15, 9, 13];
+
+// let small = bigSmallNumber[0];
+// let big = bigSmallNumber[0];
+
+// for (let i = 1; i < bigSmallNumber.length; i++) {
+//   if (bigSmallNumber[i] < small) small = bigSmallNumber[i];
+//   if (bigSmallNumber[i] > big) big = bigSmallNumber[i];
+// }
+
+// console.log(small);
+// console.log(big);
