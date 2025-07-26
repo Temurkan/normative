@@ -78,3 +78,19 @@
 // markOfStudent();
 
 ///// 5 /////
+
+// function loginCheck() {
+//   let login = prompt("Введите логин:");
+//   let password = prompt("Введите пароль:");
+
+//   if (login === "ustudy2025" && password === "u9frontend") {
+//     alert("Успешно");
+//   } else if (login !== "ustudy2025" && password !== "u9frontend") {
+//     alert("Введено неправильное логин и пароль");
+//   } else if (login !== "ustudy2025") {
+//     alert("Введен неправильный логин");
+//   } else if (password !== "u9frontend") {
+//     alert("Введен неправильный пароль");
+//   }
+// }
+// loginCheck();
