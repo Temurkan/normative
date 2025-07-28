@@ -163,3 +163,71 @@
 
 // console.log(small);
 // console.log(big);
+
+///// 3.1 /////
+
+///// Delete last array and do square /////
+
+// arr = [3, 8, 9, 7, 5];
+
+// number = arr.length;
+
+// multi = arr[number];
+
+// arr.unshift(number * number);
+
+// arr.pop();
+
+// console.log(arr);
+
+///// 3.2 /////
+
+// arr = [9, 8, 1, 5, 6, 4];
+
+// let a = 0;
+
+// arr.forEach((x) => {
+//   if (x > 0 && x % 2 === 0) {
+//     a += x;
+//   }
+// });
+
+// console.log(a);
+
+///// 3.3 /////
+
+// arr = [2, -8, 9, 1, -15, 3, 0, 5];
+
+// const evenNumbers = arr.filter((x) => x > 0);
+
+// let more = 1;
+
+// evenNumbers.forEach((x) => {
+//   more *= x;
+// });
+
+// console.log(more);
+
+///// 3.4 /////
+
+// const arr = [6, 1, 3, 5, 6, 2, 0, 4];
+
+// arr.sort((a, b) => {
+//   return a - b;
+// });
+
+// const less = arr.filter((number) => number > 2);
+
+// const square = less.map((number) => number * number);
+// console.log(square);
+
+///// 3.5 /////
+// const arr = [1, [2, 3], [4, [5, 6, 7]]];
+
+// const newArr = arr.flat(Infinity);
+
+// for (let i = 1; i <= newArr.length; i++) {
+//   if (i % 2 === 1) {
+//     console.log(i);
+//   }
+// }
