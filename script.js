@@ -294,3 +294,67 @@
 // let result = arr.filter((num) => counts[num] === 1);
 
 // console.log(result);
+
+///// 5.1 /////
+
+// let obj = {};
+
+// obj.name = "Marshall";
+// obj.age = "45";
+// obj.country = "Detroit";
+
+// console.log(obj);
+
+///// 5.2 /////
+
+// let obj = { cur: "dollar", quan: 100 };
+
+// let prodPrice = { cola: 5, potato: 2 };
+
+// let kimsanbek = { cola: 6, potato: 10 };
+
+// obj.quan =
+//   obj.quan - prod.cola * kimsanbek.cola - prod.potato * kimsanbek.potato;
+
+// console.log(obj);
+
+///// 5.3 /////
+
+// let obj = { Anvar: 19, Salim: 21, Jasur: 13 };
+
+// let value = Object.values(obj);
+
+// const maxAge = Math.max(...value);
+
+// console.log(maxAge);
+
+///// 5.4 /////
+// let obj = { name: "Marsh", age: 30, city: "Detroit" };
+
+// obj.age = 45;
+
+// obj.city = "California";
+
+// let ent = Object.entries(obj);
+
+// console.log(ent);
+
+///// 5.5 /////
+
+// let obj = { Salim: 60, Ali: 50, Kimsan: 90 };
+
+// let keys = Object.keys(obj);
+
+// for (let i = 0; i < keys.length; i++) {
+//   let key = keys[i];
+//   let value = obj[key];
+
+//   if (value < 60) {
+//     delete obj[key];
+//   } else {
+//     let newValue = value + "%";
+//     obj[key] = newValue;
+//   }
+// }
+
+// console.log(obj);
