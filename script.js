@@ -358,3 +358,76 @@
 // }
 
 // console.log(obj);
+
+///// 6.1 /////
+
+// const user = {
+//   name: "Salimxon",
+//   age: 25,
+//   values() {
+//     return Object.values(user);
+//   },
+// };
+
+// console.log(user.values());
+
+///// 6.2 /////
+
+// const square = {
+//   a: 15,
+//   b: 10,
+//   yuzasi() {
+//     let s = this.a * this.b;
+//     return s;
+//   },
+// };
+
+// console.log(square.yuzasi());
+
+///// 6.3 /////
+
+// order = {
+//   soliq: 20,
+//   kamunal: 12,
+//   prava: 980,
+//   havo: 3,
+//   qanchaKotarildi() {
+//     let keys = Object.keys(order);
+//     for (let i = 0; i < keys.length; i++) {
+//       let key = keys[i];
+//       let value = order[key];
+
+//       if (typeof value === "number") {
+//         order[key] = order[key] + order[key] * (15 / 100);
+//       }
+//     }
+//   },
+// };
+
+// order.qanchaKotarildi();
+// console.log(order);
+
+///// 6.4 /////
+
+// person = {
+//   Salim: 50,
+//   Vali: 87,
+//   Ali: 12,
+//   deleteUser() {
+//     delete person.Vali;
+//   },
+// };
+// person.deleteUser();
+// console.log(person);
+
+///// 6.5 /////
+
+// fruits = { olma: 7, mandarin: 4, banan: 6, apelsin: 1 };
+
+// for (const key in fruits) {
+//   if (fruits[key] % 2 === 1) {
+//     delete fruits[key];
+//   }
+// }
+
+// console.log(fruits);
