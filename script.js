@@ -198,7 +198,7 @@
 
 // arr = [2, -8, 9, 1, -15, 3, 0, 5];
 
-// const evenNumbers = arr.filter((x) => x > 0);
+//  evenNumbers = arr.filter((x) => x > 0);
 
 // let more = 1;
 
@@ -216,18 +216,81 @@
 //   return a - b;
 // });
 
-// const less = arr.filter((number) => number > 2);
+//  less = arr.filter((number) => number > 2);
 
-// const square = less.map((number) => number * number);
+//  square = less.map((number) => number * number);
 // console.log(square);
 
 ///// 3.5 /////
-// const arr = [1, [2, 3], [4, [5, 6, 7]]];
+//  arr = [1, [2, 3], [4, [5, 6, 7]]];
 
-// const newArr = arr.flat(Infinity);
+//  newArr = arr.flat(Infinity);
 
 // for (let i = 1; i <= newArr.length; i++) {
 //   if (i % 2 === 1) {
 //     console.log(i);
 //   }
 // }
+
+///// 4.1 /////
+
+// arr = ["Jasmina", "Muhammadior", "Bek", "Yusufxon", "Asad", "John"];
+
+// let more = arr.filter((item) => item.length > 5);
+// let less = arr.filter((item) => item.length < 5);
+
+// console.log(more, less);
+
+///// 4.2 /////
+
+// arr = [4, 8, 9, 3, 14, 57];
+
+// let small = arr[0];
+// let big = arr[0];
+
+// for (let i = 1; i < arr.length; i++) {
+//   if (arr[i] < small) small = arr[i];
+//   if (arr[i] > big) big = arr[i];
+// }
+
+// console.log(big - small);
+
+///// 4.3 /////
+// arr = ["seVinCh", "IbrohiM", "miRKomil", "JURABEK", "abdulaziz"];
+
+// let upper = arr.map(
+//   (a) => a.charAt(0).toUpperCase() + a.slice(1).toLowerCase()
+// );
+
+// console.log(upper);
+
+///// 4.4 /////
+
+// arr = [16, 20, 8,2,12,27, 13];
+
+// let newArr = arr[arr.length - 1];
+
+// let array = [];
+
+// for (let i = 0; i < arr.length; i++) {
+//   if (arr[i] < newArr) {
+//     array.push(arr[i]);
+//   }
+// }
+// if (array.length === 0) {
+//   array = [0];
+// }
+// console.log(array);
+
+///// 4.5 /////
+
+// arr = [1, 2, 2, 3, 4, 4, 5];
+
+// let counts = arr.reduce((acc, num) => {
+//   acc[num] = (acc[num] || 0) + 1;
+//   return acc;
+// }, {});
+
+// let result = arr.filter((num) => counts[num] === 1);
+
+// console.log(result);
