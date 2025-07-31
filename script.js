@@ -431,3 +431,61 @@
 // }
 
 // console.log(fruits);
+
+///// 7.1 /////
+// plusTwo = { Salim: 25, Ali: 17, Malika: 21 };
+
+// for (const key in plusTwo) {
+//   plusTwo[key] = plusTwo[key] + 2;
+// }
+
+// console.log(plusTwo);
+
+///// 7.2 /////
+
+// users = [
+//   { name: "Ali", age: 20 },
+//   { name: "Vali", age: 25 },
+//   { name: "Sami", age: 22 },
+// ];
+
+// for (const key in users) {
+//   let userAll = users[key];
+//   console.log(userAll.name + ":" + userAll.age);
+// }
+
+///// 7.3 /////
+// number = { a: 10, b: "hello", c: 5, d: true };
+
+// let op = Object.keys(number);
+
+// for (const key in number) {
+//   if (Number.isFinite(number[key])) {
+//     let res = '"' + key + "=" + number[key] + '"';
+//     console.log(res);
+//   }
+// }
+
+///// 7.4 /////
+// person = { name: "Lola", age: null, job: "Teacher", city: null };
+// for (const key in person) {
+//   if (person[key] === null) {
+//     delete person[key];
+//   }
+// }
+// console.log(person);
+
+///// 7.5 /////
+const users = [
+  { name: "Ali", age: 17 },
+  { name: "Vali", age: 19 },
+  { name: "Sami", age: 21 },
+];
+
+for (let i = 0; i < users.length; i++) {
+  if (users[i].age < 18) {
+    users.splice(i, 1);
+  }
+}
+
+console.log(users);
