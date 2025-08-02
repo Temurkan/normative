@@ -476,16 +476,28 @@
 // console.log(person);
 
 ///// 7.5 /////
-const users = [
-  { name: "Ali", age: 17 },
-  { name: "Vali", age: 19 },
-  { name: "Sami", age: 21 },
-];
+// const users = [
+//   { name: "Ali", age: 17 },
+//   { name: "Vali", age: 19 },
+//   { name: "Sami", age: 21 },
+// ];
 
-for (let i = 0; i < users.length; i++) {
-  if (users[i].age < 18) {
-    users.splice(i, 1);
-  }
-}
+// for (let i = 0; i < users.length; i++) {
+//   if (users[i].age < 18) {
+//     users.splice(i, 1);
+//   }
+// }
 
-console.log(users);
+// console.log(users);
+
+// let input = "google";
+// function firstRepeat() {
+//   for (let i = 0; i < input.length; i++) {
+//     if (input.lastIndexOf(input[i]) !== i) {
+//       return input[i];
+//     }
+//   }
+//   return null;
+// }
+
+// console.log(firstRepeat());
