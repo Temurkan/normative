@@ -49,3 +49,66 @@
 // }
 
 // getName();
+
+// 1
+function makeNegative(num) {
+  if (num > 0) {
+    num = -num;
+  }
+  console.log(num);
+}
+
+makeNegative(-54);
+makeNegative(54);
+makeNegative(0);
+// 2
+function evenOrOdd(number) {
+  if (number % 2 === 0) {
+    console.log("even");
+  } else {
+    console.log("odd");
+  }
+}
+evenOrOdd(4);
+evenOrOdd(5);
+// 3
+function removeChar(str) {
+  let str1 = str.split("");
+  str1.shift();
+  str1.pop();
+  let str2 = str1.join("");
+
+  console.log(str2);
+}
+removeChar("hello");
+
+// 4 //
+function solution(string) {
+  let rev = string.split("").reverse().join("");
+  console.log(rev);
+}
+
+solution("world");
+
+// 5 //
+function positiveSum(arr) {
+  evenNumbers = arr.filter((x) => x > 0);
+
+  let more = 0;
+
+  evenNumbers.forEach((x) => {
+    more += x;
+  });
+  console.log(more);
+}
+
+positiveSum([2, -4, 6, -5, 1, 13]);
+
+// 6 //
+function stringRepeat(n, s) {
+  for (let i = 0; i < n; i++) {
+    console.log(s);
+  }
+}
+
+stringRepeat(3, "ha");
