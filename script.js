@@ -216,9 +216,9 @@
 //   return a - b;
 // });
 
-//  less = arr.filter((number) => number > 2);
+// less = arr.filter((number) => number > 2);
 
-//  square = less.map((number) => number * number);
+// square = less.map((number) => number * number);
 // console.log(square);
 
 ///// 3.5 /////
@@ -501,3 +501,85 @@
 // }
 
 // console.log(firstRepeat());
+
+///// 8 /////
+// function calculate(a, b) {
+//   try {
+//     if (isNaN(a) || isNaN(b)) {
+//       throw new Error("Оба аргумента должны быть числами.");
+//     }
+
+//     let operator = prompt("Введите оператор (+, -, *, /):");
+//     let result;
+
+//     if (operator === "+") {
+//       result = a + b;
+//     } else if (operator === "-") {
+//       result = a - b;
+//     } else if (operator === "*") {
+//       result = a * b;
+//     } else if (operator === "/") {
+//       if (b === 0) {
+//         throw new Error("Деление на ноль невозможно.");
+//       }
+//       result = a / b;
+//     } else {
+//       throw new Error("Неверный оператор.");
+//     }
+
+//     alert("Результат: " + result);
+//   } catch (error) {
+//     alert("Ошибка: " + error.message);
+//   }
+// }
+// calculate(4, 5);
+
+///// 8.2 /////
+
+///// 8.4 /////
+// function registerUser() {
+//   try {
+//     let user = {};
+
+//     user.name = prompt("Введите имя:");
+//     if (typeof user.name !== "string" || user.name.length < 3) {
+//       throw new Error("Имя должно содержать не менее 3 символов");
+//     }
+
+//     user.age = Number(prompt("Введите возраст:"));
+//     if (isNaN(user.age) || user.age < 7) {
+//       throw new Error("Возраст должен быть числом и не меньше 7");
+//     }
+//     user.email = prompt("Введите почту:");
+//     const at = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+//     if (typeof user.email !== "string" || at.test(user.email) == false) {
+//       throw new Error("Некорректный email. Он должен содержать '@'");
+//     }
+//     let answer = prompt("Вы студент? (да/нет)").toLowerCase();
+//     if (answer === "да") {
+//       user.isStudent = true;
+//     } else if (answer === "нет") {
+//       user.isStudent = false;
+//     } else {
+//       throw new Error(
+//         "Ответ на вопрос 'Вы студент?' должен быть 'да' или 'нет'"
+//       );
+//     }
+//     alert(`Регистрация успешна! Добро пожаловать, ${user.name}!`);
+//     console.log(user);
+//   } catch (error) {
+//     alert("Ошибка: " + error.message);
+//   }
+// }
+
+// registerUser();
+
+///// 8.3 /////
+// function checkType(x) {
+//   if (Array.isArray(x)) {
+//     console.log("Bu array");
+//   } else {
+//     console.log("Bu " + typeof x);
+//   }
+// }
+// checkType({});

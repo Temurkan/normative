@@ -112,3 +112,65 @@ function stringRepeat(n, s) {
 }
 
 stringRepeat(3, "ha");
+// 7 //
+function getMiddle(s) {
+  for (let i = 0; i < s.length; i++) {
+    if (s.length % 2 === 0) {
+      let mid = s.length / 2;
+      let letter = s[mid - 1] + s[mid];
+      console.log(letter);
+      return;
+    } else {
+      let midl = s.length / 2 + 0.5;
+      let letter = s[midl];
+      console.log(letter);
+      return;
+    }
+  }
+}
+
+getMiddle("test");
+getMiddle("hello");
+
+// 8 //
+function findShort(sent) {
+  let word = sent.split(" ");
+  let small = word[0].length;
+  for (let i = 0; i < word.length; i++) {
+    if (word[i].length < small) small = word[i].length;
+  }
+  console.log(small);
+}
+
+findShort("Simple and easy");
+
+// 9 //
+function accum(x) {
+  let result = "";
+  for (let i = 0; i < x.length; i++) {
+    result = x[i] + x[+i] + x[++i];
+  }
+  console.log(result);
+}
+
+accum("hello");
+
+function descend(f) {
+  const arr = f.toString().split("");
+  arr.sort((a, b) => b - a);
+  arr.join("");
+  console.log(arr.join(""));
+}
+descend(1873173);
+
+// 10 //
+function repeatByIndex(word) {
+  let result = word
+    .split("")
+    .map((letter, index) => letter.repeat(index + 1))
+    .join("-");
+  return result;
+}
+
+console.log(repeatByIndex("cat"));
+console.log(repeatByIndex("FdmsmdF"));
