@@ -583,3 +583,56 @@
 //   }
 // }
 // checkType({});
+
+///// Closure and Callbacks /////
+
+// function customForEach(array, callback) {
+//   for (let i = 0; i < array.length; i++) {
+//     callback(array[i], i, array);
+//   }
+// }
+
+// const numbers = [2, 2, 3];
+
+// customForEach(numbers, function (item) {
+//   console.log(item);
+// });
+
+// function customFind(array, callback) {
+//   for (let i = 0; i < array.length; i++) {
+//     if (callback(array[i], i, array)) {
+//       return array[i];
+//     }
+//   }
+//   return undefined;
+// }
+// const array = [5, 80, 40, 130];
+
+// const result = customFind(array, (item) => item % 10 === 0);
+// console.log(result);
+
+// function customSome(array, callback) {
+//   for (let i = 0; i < array.length; i++) {
+//     if (callback(array[i], i, array)) {
+//       return true;
+//     }
+//   }
+//   return false;
+// }
+// const array = [5, 80, 40, 130];
+
+// const result = customSome(array, (item) => item % 10 === 0);
+// console.log(result);
+
+// function customEvery(array, callback) {
+//   for (let i = 0; i < array.length; i++) {
+//     if (!callback(array[i], i, array)) {
+//       return false;
+//     }
+//   }
+//   return true;
+// }
+// const array = [10, 80, 40, 130];
+
+// const result = customEvery(array, (item) => item % 10 === 0);
+// console.log(result);
