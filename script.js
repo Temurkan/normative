@@ -636,3 +636,44 @@
 
 // const result = customEvery(array, (item) => item % 10 === 0);
 // console.log(result);
+
+/////  Async Await /////
+
+// async function getUserData() {
+//   try {
+//     const response = await fetch("https://api.escuelajs.co/api/v1/products");
+//     const data = await response.json();
+//     const title = data.map((p) => p.title);
+//     console.log(title);
+//     console.log(data);
+//   } catch (error) {
+//     console.error("Error fetching user data:", error);
+//   }
+// }
+// getUserData();
+
+// async function getUserData() {
+//   try {
+//     const response = await fetch("https://api.escuelajs.co/api/v1/users");
+//     const data = await response.json();
+//     const title = data.map((p) => p.name);
+//     console.log(title);
+//     console.log(data);
+//   } catch (error) {
+//     console.error("Error fetching user data:", error);
+//   }
+// }
+// getUserData();
+
+// async function getUserData() {
+//   try {
+//     const response = await fetch("https://api.escuelajs.co/api/v1/categories");
+//     const data = await response.json();
+//     const title = data.map((p) => p.name);
+//     console.log(title);
+//     console.log(data);
+//   } catch (error) {
+//     console.error("Error fetching user data:", error);
+//   }
+// }
+// getUserData();
