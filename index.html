@@ -3,9 +3,70 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>USTUDY - Normatives</title>
+    <style>
+      body {
+        margin: auto;
+      }
+      .active {
+        color: red;
+      }
+      .highlight {
+        border: 2px solid blue;
+      }
+      .img {
+        display: none;
+      }
+      #changeBg {
+        width: 120px;
+        height: 120px;
+      }
+      :active,
+      :hover,
+      :focus {
+        outline: 0;
+        outline-offset: 0;
+      }
+      .mode {
+        color: white;
+        background-color: black;
+      }
+    </style>
   </head>
   <body>
+    <div id="div">
+      <div>
+        <div id="change">GREEN</div>
+        <button id="changeText">Click to change</button>
+      </div>
+      <p id="hover">HOVER</p>
+      <div>
+        <div id="tog">TOGGLE</div>
+        <button id="toogle">Click to toggle</button>
+      </div>
+      <div>
+        <img
+          id="img"
+          height="120"
+          width="120"
+          src="https://undergroundtuning.com/cdn/shop/files/nissangtrnismo_1800x1800.jpg?v=1691387687"
+          alt="gtrr35"
+        />
+        <div>
+          <button id="imgBtn">Click to hidden</button>
+        </div>
+      </div>
+      <div>
+        <input id="input" type="text" />
+      </div>
+      <div>
+        <div id="changeBg"></div>
+        <button id="red">RED</button>
+        <button id="green">GREEN</button>
+        <button id="blue">BLUE</button>
+      </div>
+      <button id="mode">DARK MODE/LIGHT MODE</button>
+    </div>
     <script src="./script.js"></script>
   </body>
 </html>

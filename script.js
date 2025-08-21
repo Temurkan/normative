@@ -677,3 +677,66 @@
 //   }
 // }
 // getUserData();
+
+const body = document.querySelector("#div");
+const div = document.querySelector("#change");
+const btn = document.querySelector("#changeText");
+const hover = document.querySelector("#hover");
+const toggle = document.querySelector("#toogle");
+const tog = document.querySelector("#tog");
+const img = document.querySelector("#img");
+const imgBtn = document.querySelector("#imgBtn");
+const input = document.querySelector("#input");
+const changeBg = document.querySelector("#changeBg");
+const red = document.querySelector("#red");
+const green = document.querySelector("#green");
+const blue = document.querySelector("#blue");
+const mode = document.querySelector("#mode");
+
+///// EXERCISE 1 /////
+btn.addEventListener("click", () => {
+  div.style.backgroundColor = "green";
+});
+
+///// EXERCISE 2 /////
+hover.addEventListener("mouseover", () => {
+  hover.classList.add("active");
+});
+hover.addEventListener("mouseout", () => {
+  hover.classList.remove("active");
+});
+
+///// EXERCISE 3 /////
+toggle.addEventListener("click", () => {
+  tog.classList.toggle("highlight");
+});
+
+///// EXERCISE 4 /////
+imgBtn.addEventListener("click", () => {
+  img.classList.toggle("img");
+});
+
+///// EXERCISE 5 /////
+input.addEventListener("input", () => {
+  if (input.value.length < 5) {
+    input.style.border = "2px solid red"; // меньше 5 символов
+  } else {
+    input.style.border = "2px solid green"; // 5 и больше
+  }
+});
+
+///// EXERCISE 6 /////
+red.addEventListener("click", () => {
+  changeBg.style.backgroundColor = "red";
+});
+green.addEventListener("click", () => {
+  changeBg.style.backgroundColor = "green";
+});
+blue.addEventListener("click", () => {
+  changeBg.style.backgroundColor = "blue";
+});
+
+///// EXERCISE 7 /////
+mode.addEventListener("click", () => {
+  body.classList.toggle("mode");
+});
