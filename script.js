@@ -678,65 +678,110 @@
 // }
 // getUserData();
 
-const body = document.querySelector("#div");
-const div = document.querySelector("#change");
-const btn = document.querySelector("#changeText");
-const hover = document.querySelector("#hover");
-const toggle = document.querySelector("#toogle");
-const tog = document.querySelector("#tog");
-const img = document.querySelector("#img");
-const imgBtn = document.querySelector("#imgBtn");
-const input = document.querySelector("#input");
-const changeBg = document.querySelector("#changeBg");
-const red = document.querySelector("#red");
-const green = document.querySelector("#green");
-const blue = document.querySelector("#blue");
-const mode = document.querySelector("#mode");
+// const body = document.querySelector("#div");
+// const div = document.querySelector("#change");
+// const btn = document.querySelector("#changeText");
+// const hover = document.querySelector("#hover");
+// const toggle = document.querySelector("#toogle");
+// const tog = document.querySelector("#tog");
+// const img = document.querySelector("#img");
+// const imgBtn = document.querySelector("#imgBtn");
+// const input = document.querySelector("#input");
+// const changeBg = document.querySelector("#changeBg");
+// const red = document.querySelector("#red");
+// const green = document.querySelector("#green");
+// const blue = document.querySelector("#blue");
+// const mode = document.querySelector("#mode");
 
-///// EXERCISE 1 /////
-btn.addEventListener("click", () => {
-  div.style.backgroundColor = "green";
-});
+// ///// EXERCISE 1 /////
+// btn.addEventListener("click", () => {
+//   div.style.backgroundColor = "green";
+// });
 
-///// EXERCISE 2 /////
-hover.addEventListener("mouseover", () => {
-  hover.classList.add("active");
-});
-hover.addEventListener("mouseout", () => {
-  hover.classList.remove("active");
-});
+// ///// EXERCISE 2 /////
+// hover.addEventListener("mouseover", () => {
+//   hover.classList.add("active");
+// });
+// hover.addEventListener("mouseout", () => {
+//   hover.classList.remove("active");
+// });
 
-///// EXERCISE 3 /////
-toggle.addEventListener("click", () => {
-  tog.classList.toggle("highlight");
-});
+// ///// EXERCISE 3 /////
+// toggle.addEventListener("click", () => {
+//   tog.classList.toggle("highlight");
+// });
 
-///// EXERCISE 4 /////
-imgBtn.addEventListener("click", () => {
-  img.classList.toggle("img");
-});
+// ///// EXERCISE 4 /////
+// imgBtn.addEventListener("click", () => {
+//   img.classList.toggle("img");
+// });
 
-///// EXERCISE 5 /////
-input.addEventListener("input", () => {
-  if (input.value.length < 5) {
-    input.style.border = "2px solid red"; // меньше 5 символов
-  } else {
-    input.style.border = "2px solid green"; // 5 и больше
-  }
-});
+// ///// EXERCISE 5 /////
+// input.addEventListener("input", () => {
+//   if (input.value.length < 5) {
+//     input.style.border = "2px solid red"; // меньше 5 символов
+//   } else {
+//     input.style.border = "2px solid green"; // 5 и больше
+//   }
+// });
 
-///// EXERCISE 6 /////
-red.addEventListener("click", () => {
-  changeBg.style.backgroundColor = "red";
-});
-green.addEventListener("click", () => {
-  changeBg.style.backgroundColor = "green";
-});
-blue.addEventListener("click", () => {
-  changeBg.style.backgroundColor = "blue";
-});
+// ///// EXERCISE 6 /////
+// red.addEventListener("click", () => {
+//   changeBg.style.backgroundColor = "red";
+// });
+// green.addEventListener("click", () => {
+//   changeBg.style.backgroundColor = "green";
+// });
+// blue.addEventListener("click", () => {
+//   changeBg.style.backgroundColor = "blue";
+// });
 
-///// EXERCISE 7 /////
-mode.addEventListener("click", () => {
-  body.classList.toggle("mode");
+// ///// EXERCISE 7 /////
+// mode.addEventListener("click", () => {
+//   body.classList.toggle("mode");
+// });
+
+////// DOM ACCORDION ///////
+
+// const btn = document.querySelectorAll(".btn");
+// const text = document.querySelector("p");
+
+// btn.forEach((header) => {
+//   header.addEventListener("click", () => {
+//     const content = header.nextElementSibling;
+//     const openItem = document.querySelector("p.active");
+//     if (openItem && openItem !== content) openItem.classList.remove("active");
+//     content.classList.toggle("active");
+//   });
+// });
+
+const btns = document.querySelectorAll(".btn");
+const texts = document.querySelectorAll("p");
+const svgs = document.querySelectorAll(".btn svg");
+
+btns.forEach((header) => {
+  header.addEventListener("click", () => {
+    const accordionItem = header.parentElement;
+    const text = accordionItem.querySelector("p");
+    const svg = accordionItem.querySelector("svg");
+
+    texts.forEach((content) => {
+      if (content !== text) {
+        content.classList.remove("active");
+        content.style.maxHeight = "0";
+      }
+    });
+    svgs.forEach((s) => {
+      if (s !== svg) s.classList.remove("active");
+    });
+
+    text.classList.toggle("active");
+    svg.classList.toggle("active");
+
+    if (text.classList.contains("active")) {
+      text.style.maxHeight = text.scrollHeight + "px";
+    } else {
+      text.style.maxHeight = "0";
+    }
+  });
 });

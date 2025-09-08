@@ -6,66 +6,105 @@
     <title>USTUDY - Normatives</title>
     <style>
       body {
-        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        height: 100vh;
       }
-      .active {
-        color: red;
+      .parent {
+        width: 400px;
       }
-      .highlight {
-        border: 2px solid blue;
+      #accordion {
+        margin-bottom: 10px;
       }
-      .img {
-        display: none;
+      .btn {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: blanchedalmond;
+        padding: 10px;
+        cursor: pointer;
+        font-weight: bold;
       }
-      #changeBg {
-        width: 120px;
-        height: 120px;
+      p {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease, opacity 0.4s ease;
+        background: gray;
+        margin: 0;
+        padding: 0 12px;
       }
-      :active,
-      :hover,
-      :focus {
-        outline: 0;
-        outline-offset: 0;
+
+      p.active {
+        max-height: 200px;
+        padding: 12px;
       }
-      .mode {
-        color: white;
-        background-color: black;
+      svg {
+        transform: rotate(0);
+        transition: all 0.5s ease;
+      }
+      svg.active {
+        transform: rotate(180deg);
       }
     </style>
   </head>
   <body>
-    <div id="div">
-      <div>
-        <div id="change">GREEN</div>
-        <button id="changeText">Click to change</button>
-      </div>
-      <p id="hover">HOVER</p>
-      <div>
-        <div id="tog">TOGGLE</div>
-        <button id="toogle">Click to toggle</button>
-      </div>
-      <div>
-        <img
-          id="img"
-          height="120"
-          width="120"
-          src="https://undergroundtuning.com/cdn/shop/files/nissangtrnismo_1800x1800.jpg?v=1691387687"
-          alt="gtrr35"
-        />
-        <div>
-          <button id="imgBtn">Click to hidden</button>
+    <div class="parent">
+      <div id="accordion">
+        <div class="btn">
+          <span>Product information</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+            <path
+              d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8.009 8.009 0 0 1-8 8z"
+            />
+            <path
+              d="M12 12.586 8.707 9.293l-1.414 1.414L12 15.414l4.707-4.707-1.414-1.414L12 12.586z"
+            />
+          </svg>
         </div>
+        <p>
+          Our flagship product combines cutting-edge technology with sleek
+          design. Built with premium materials, it offers unparalleled
+          performance and reliability.
+        </p>
       </div>
-      <div>
-        <input id="input" type="text" />
+      <div id="accordion">
+        <div class="btn">
+          <span>Product information</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+            <path
+              d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8.009 8.009 0 0 1-8 8z"
+            />
+            <path
+              d="M12 12.586 8.707 9.293l-1.414 1.414L12 15.414l4.707-4.707-1.414-1.414L12 12.586z"
+            />
+          </svg>
+        </div>
+        <p>
+          Our flagship product combines cutting-edge technology with sleek
+          design. Built with premium materials, it offers unparalleled
+          performance and reliability.
+        </p>
       </div>
-      <div>
-        <div id="changeBg"></div>
-        <button id="red">RED</button>
-        <button id="green">GREEN</button>
-        <button id="blue">BLUE</button>
+      <div id="accordion">
+        <div class="btn">
+          <span>Product information</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+            <path
+              d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8.009 8.009 0 0 1-8 8z"
+            />
+            <path
+              d="M12 12.586 8.707 9.293l-1.414 1.414L12 15.414l4.707-4.707-1.414-1.414L12 12.586z"
+            />
+          </svg>
+        </div>
+        <p>
+          Our flagship product combines cutting-edge technology with sleek
+          design. Built with premium materials, it offers unparalleled
+          performance and reliability.
+        </p>
       </div>
-      <button id="mode">DARK MODE/LIGHT MODE</button>
     </div>
     <script src="./script.js"></script>
   </body>
