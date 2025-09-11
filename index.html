@@ -6,105 +6,70 @@
     <title>USTUDY - Normatives</title>
     <style>
       body {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0;
-        height: 100vh;
+        background-color: black;
       }
-      .parent {
-        width: 400px;
-      }
-      #accordion {
-        margin-bottom: 10px;
-      }
-      .btn {
+      .sonner {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -120%);
+        border: 1px solid rgba(128, 128, 128, 0.233);
+        border-radius: 5px;
+        width: 350px;
+        height: 70px;
+        background-color: rgb(33, 33, 33);
+        transition: all 0.6s ease;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background-color: blanchedalmond;
-        padding: 10px;
-        cursor: pointer;
-        font-weight: bold;
+        color: white;
+        padding: 10px 20px;
+      }
+      .sonner.active {
+        transform: translate(-50%, 0%);
       }
       p {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.4s ease, opacity 0.4s ease;
-        background: gray;
-        margin: 0;
-        padding: 0 12px;
+        font-family: sans-serif;
+        font: 900;
+        font-size: 13px;
       }
 
-      p.active {
-        max-height: 200px;
-        padding: 12px;
+      .undo {
+        border: 1px solid;
+        border-radius: 3px;
+        padding: 5px 10px;
+        background-color: white;
+        color: black;
+        cursor: pointer;
       }
-      svg {
-        transform: rotate(0);
-        transition: all 0.5s ease;
+
+      .btn_div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 95vh;
       }
-      svg.active {
-        transform: rotate(180deg);
+      .btn {
+        border: 1px solid rgba(128, 128, 128, 0.233);
+        border-radius: 3px;
+        padding: 10px 20px;
+        background-color: rgb(33, 33, 33);
+        color: white;
+        cursor: pointer;
       }
     </style>
   </head>
   <body>
-    <div class="parent">
-      <div id="accordion">
-        <div class="btn">
-          <span>Product information</span>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
-            <path
-              d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8.009 8.009 0 0 1-8 8z"
-            />
-            <path
-              d="M12 12.586 8.707 9.293l-1.414 1.414L12 15.414l4.707-4.707-1.414-1.414L12 12.586z"
-            />
-          </svg>
-        </div>
-        <p>
-          Our flagship product combines cutting-edge technology with sleek
-          design. Built with premium materials, it offers unparalleled
-          performance and reliability.
-        </p>
+    <div class="sonner" id="sonner">
+      <div class="text">
+        <p class="event">Event has been created</p>
+        <p class="date">Sunday, December 03, 2023 at 9:00 AM</p>
       </div>
-      <div id="accordion">
-        <div class="btn">
-          <span>Product information</span>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
-            <path
-              d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8.009 8.009 0 0 1-8 8z"
-            />
-            <path
-              d="M12 12.586 8.707 9.293l-1.414 1.414L12 15.414l4.707-4.707-1.414-1.414L12 12.586z"
-            />
-          </svg>
-        </div>
-        <p>
-          Our flagship product combines cutting-edge technology with sleek
-          design. Built with premium materials, it offers unparalleled
-          performance and reliability.
-        </p>
+      <div>
+        <button class="undo" id="undo">Undo</button>
       </div>
-      <div id="accordion">
-        <div class="btn">
-          <span>Product information</span>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
-            <path
-              d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8.009 8.009 0 0 1-8 8z"
-            />
-            <path
-              d="M12 12.586 8.707 9.293l-1.414 1.414L12 15.414l4.707-4.707-1.414-1.414L12 12.586z"
-            />
-          </svg>
-        </div>
-        <p>
-          Our flagship product combines cutting-edge technology with sleek
-          design. Built with premium materials, it offers unparalleled
-          performance and reliability.
-        </p>
-      </div>
+    </div>
+    <div class="btn_div">
+      <button class="btn" id="btn">Show Toast</button>
     </div>
     <script src="./script.js"></script>
   </body>

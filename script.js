@@ -755,33 +755,50 @@
 //   });
 // });
 
-const btns = document.querySelectorAll(".btn");
-const texts = document.querySelectorAll("p");
-const svgs = document.querySelectorAll(".btn svg");
+// const btns = document.querySelectorAll(".btn");
+// const texts = document.querySelectorAll("p");
+// const svgs = document.querySelectorAll(".btn svg");
 
-btns.forEach((header) => {
-  header.addEventListener("click", () => {
-    const accordionItem = header.parentElement;
-    const text = accordionItem.querySelector("p");
-    const svg = accordionItem.querySelector("svg");
+// btns.forEach((header) => {
+//   header.addEventListener("click", () => {
+//     const accordionItem = header.parentElement;
+//     const text = accordionItem.querySelector("p");
+//     const svg = accordionItem.querySelector("svg");
 
-    texts.forEach((content) => {
-      if (content !== text) {
-        content.classList.remove("active");
-        content.style.maxHeight = "0";
-      }
-    });
-    svgs.forEach((s) => {
-      if (s !== svg) s.classList.remove("active");
-    });
+//     texts.forEach((content) => {
+//       if (content !== text) {
+//         content.classList.remove("active");
+//         content.style.maxHeight = "0";
+//       }
+//     });
+//     svgs.forEach((s) => {
+//       if (s !== svg) s.classList.remove("active");
+//     });
 
-    text.classList.toggle("active");
-    svg.classList.toggle("active");
+//     text.classList.toggle("active");
+//     svg.classList.toggle("active");
 
-    if (text.classList.contains("active")) {
-      text.style.maxHeight = text.scrollHeight + "px";
-    } else {
-      text.style.maxHeight = "0";
-    }
-  });
+//     if (text.classList.contains("active")) {
+//       text.style.maxHeight = text.scrollHeight + "px";
+//     } else {
+//       text.style.maxHeight = "0";
+//     }
+//   });
+// // });
+
+const toastBtn = document.querySelector("#btn");
+const sonner = document.querySelector("#sonner");
+const undoBtn = document.querySelector("#undo");
+
+toastBtn.addEventListener("click", () => {
+  sonner.classList.add("active");
+  function greet() {
+    sonner.classList.remove("active");
+  }
+
+  setTimeout(greet, 4000);
+});
+
+undoBtn.addEventListener("click", () => {
+  sonner.classList.remove("active");
 });
