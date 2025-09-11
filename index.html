@@ -6,70 +6,46 @@
     <title>USTUDY - Normatives</title>
     <style>
       body {
-        background-color: black;
-      }
-      .sonner {
-        position: absolute;
-        left: 50%;
-        transform: translate(-50%, -120%);
-        border: 1px solid rgba(128, 128, 128, 0.233);
-        border-radius: 5px;
-        width: 350px;
-        height: 70px;
-        background-color: rgb(33, 33, 33);
-        transition: all 0.6s ease;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        color: white;
-        padding: 10px 20px;
-      }
-      .sonner.active {
-        transform: translate(-50%, 0%);
-      }
-      p {
         font-family: sans-serif;
-        font: 900;
-        font-size: 13px;
-      }
-
-      .undo {
-        border: 1px solid;
-        border-radius: 3px;
-        padding: 5px 10px;
-        background-color: white;
-        color: black;
-        cursor: pointer;
-      }
-
-      .btn_div {
         display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 95vh;
+        gap: 40px;
+        padding: 20px;
       }
-      .btn {
-        border: 1px solid rgba(128, 128, 128, 0.233);
-        border-radius: 3px;
-        padding: 10px 20px;
-        background-color: rgb(33, 33, 33);
-        color: white;
-        cursor: pointer;
+
+      .product,
+      .cart {
+        border: 2px dashed #ccc;
+        padding: 20px;
+        min-height: 200px;
+        width: 250px;
+      }
+
+      .product-item {
+        border: 1px solid #999;
+        padding: 10px;
+        margin-bottom: 10px;
+        background: #f0f0f0;
+        cursor: grab;
+      }
+
+      .cart-item {
+        margin: 5px 0;
+      }
+
+      .cart.drag-over {
+        background-color: #e0ffe0;
       }
     </style>
   </head>
   <body>
-    <div class="sonner" id="sonner">
-      <div class="text">
-        <p class="event">Event has been created</p>
-        <p class="date">Sunday, December 03, 2023 at 9:00 AM</p>
-      </div>
-      <div>
-        <button class="undo" id="undo">Undo</button>
-      </div>
+    <div class="product" id="product-list">
+      <h2>Products</h2>
     </div>
-    <div class="btn_div">
-      <button class="btn" id="btn">Show Toast</button>
+
+    <div class="cart" id="cart">
+      <h2>Cart</h2>
+      <ul id="cart-list"></ul>
+      <p>Total: $<span id="total">0</span></p>
     </div>
     <script src="./script.js"></script>
   </body>
