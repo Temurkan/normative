@@ -786,6 +786,8 @@
 //   });
 // // });
 
+///// Toaster SONNER
+
 // const toastBtn = document.querySelector("#btn");
 // const sonner = document.querySelector("#sonner");
 // const undoBtn = document.querySelector("#undo");
@@ -804,78 +806,174 @@
 // });
 
 ///// DRAG and DROP
-const products = [
-  { id: 11, name: "Egg", price: 1 },
-  { id: 2, name: "Chocolate", price: 2 },
-  { id: 3, name: "Juice", price: 3 },
-];
+// const products = [
+//   { id: 11, name: "Egg", price: 1 },
+//   { id: 2, name: "Chocolate", price: 2 },
+//   { id: 3, name: "Juice", price: 3 },
+// ];
 
-let cart = [];
+// let cart = [];
 
-const productList = document.getElementById("product-list");
-const cartList = document.getElementById("cart-list");
-const totalEl = document.getElementById("total");
-const cartBox = document.getElementById("cart");
+// const productList = document.getElementById("product-list");
+// const cartList = document.getElementById("cart-list");
+// const totalEl = document.getElementById("total");
+// const cartBox = document.getElementById("cart");
 
-products.forEach((product) => {
-  const div = document.createElement("div");
-  div.className = "product-item";
-  div.textContent = `${product.name} - $${product.price}`;
-  div.draggable = true;
-  div.dataset.id = product.id;
+// products.forEach((product) => {
+//   const div = document.createElement("div");
+//   div.className = "product-item";
+//   div.textContent = `${product.name} - $${product.price}`;
+//   div.draggable = true;
+//   div.dataset.id = product.id;
 
-  div.addEventListener("dragstart", (e) => {
-    e.dataTransfer.setData("text/plain", product.id);
-  });
+//   div.addEventListener("dragstart", (e) => {
+//     e.dataTransfer.setData("text/plain", product.id);
+//   });
 
-  productList.appendChild(div);
+//   productList.appendChild(div);
+// });
+
+// cartBox.addEventListener("dragover", (e) => {
+//   e.preventDefault();
+//   cartBox.classList.add("drag-over");
+// });
+
+// cartBox.addEventListener("dragleave", () => {
+//   cartBox.classList.remove("drag-over");
+// });
+
+// cartBox.addEventListener("drop", (e) => {
+//   e.preventDefault();
+//   cartBox.classList.remove("drag-over");
+//   const id = parseInt(e.dataTransfer.getData("text/plain"));
+//   const product = products.find((p) => p.id === id);
+//   if (product) {
+//     addToCart(product);
+//     alert("Drag&Droped");
+//     alert(product.name);
+//   }
+// });
+
+// function addToCart(product) {
+//   const existing = cart.find((item) => item.id === product.id);
+
+//   if (existing) {
+//     existing.count++;
+//   } else {
+//     cart.push({ ...product, count: 1 });
+//   }
+
+//   updateCart();
+// }
+
+// function updateCart() {
+//   cartList.innerHTML = "";
+
+//   cart.forEach((p) => {
+//     const li = document.createElement("li");
+//     li.className = "cart-item";
+//     li.textContent = `${p.name} x ${p.count} = $${(p.price * p.count).toFixed(
+//       2
+//     )}`;
+
+//     cartList.appendChild(li);
+//     totalPrice = cart.reduce((acc, curr) => acc + curr.price, 0);
+//   });
+//   totalEl.innerHTML = `${totalPrice}`;
+// }
+
+///// LocalStorage & Event Listeners /////
+
+///// Counter
+const number = document.querySelector("#number");
+const btn = document.querySelector("#btnCount");
+
+let n = localStorage.getItem("count");
+n = parseInt(n);
+number.innerHTML = n;
+
+btn.addEventListener("click", () => {
+  n++;
+  number.innerHTML = n;
+  localStorage.setItem("count", n);
 });
 
-cartBox.addEventListener("dragover", (e) => {
-  e.preventDefault();
-  cartBox.classList.add("drag-over");
+///// Input value
+const btnValue = document.querySelector("#btnValue");
+const nameL = document.querySelector("#name");
+const input = document.querySelector("#input");
+
+let savedName = localStorage.getItem("name");
+input.value = savedName;
+
+btnValue.addEventListener("click", () => {
+  let n = input.value;
+  localStorage.setItem("name", n);
 });
 
-cartBox.addEventListener("dragleave", () => {
-  cartBox.classList.remove("drag-over");
-});
+///// Form submit
+const nameInput = document.querySelector("#nameSubmit");
+const mailInput = document.querySelector("#mailSubmit");
+const btnSubmit = document.querySelector("#btnSubmit");
 
-cartBox.addEventListener("drop", (e) => {
-  e.preventDefault();
-  cartBox.classList.remove("drag-over");
-  const id = parseInt(e.dataTransfer.getData("text/plain"));
-  const product = products.find((p) => p.id === id);
-  if (product) {
-    addToCart(product);
-    alert("Drag&Droped");
-    alert(product.name);
+btnSubmit.addEventListener("click", () => {
+  if (nameInput.value === "" || mailInput.value === "") {
+    alert("Please fill out the form");
+  }
+  const at = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z])$/;
+  if (at.test(mailInput.value) == false) {
+    alert("Некорректный email. Он должен содержать '@'");
+  }
+  if (nameInput.value !== "" && mailInput.value !== "") {
+    alert("Information about successfully submit!");
   }
 });
 
-function addToCart(product) {
-  const existing = cart.find((item) => item.id === product.id);
+///// Translator
 
-  if (existing) {
-    existing.count++;
-  } else {
-    cart.push({ ...product, count: 1 });
+const btnUz = document.querySelector("#btnUz");
+const btnEn = document.querySelector("#btnEn");
+const textTran = document.querySelector("#textTran");
+
+function saved() {
+  let savedLan = localStorage.getItem("lan");
+  if (savedLan === "uzb") {
+    textTran.innerHTML = "Salom, Xush kelibsiz";
   }
-
-  updateCart();
+  if (savedLan === "eng") {
+    textTran.innerHTML = "Hello, Welcome";
+  }
 }
 
-function updateCart() {
-  cartList.innerHTML = "";
+saved();
 
-  cart.forEach((p) => {
-    const li = document.createElement("li");
-    li.className = "cart-item";
-    li.textContent = `${p.name} x ${p.count} = $${(p.price * p.count).toFixed(
-      2
-    )}`;
+btnUz.addEventListener("click", () => {
+  let l = "uzb";
+  localStorage.setItem("lan", l);
+  saved();
+});
 
-    cartList.appendChild(li);
-    totalPrice = cart.reduce((acc, curr) => acc + curr.price, 0);
-  });
-  totalEl.innerHTML = `${totalPrice}`;
-}
+btnEn.addEventListener("click", () => {
+  let l = "eng";
+  localStorage.setItem("lan", l);
+  saved();
+});
+
+///// Coordinates
+const cursor = document.querySelector(".cursor");
+const squareBlack = document.querySelector("#square");
+const xAxis = document.querySelector("#xaxis");
+const yAxis = document.querySelector("#yaxis");
+squareBlack.addEventListener("mousemove", (e) => {
+  xAxis.innerHTML = "Axis X:" + e.offsetX;
+  yAxis.innerHTML = "Axis Y:" + e.offsetY;
+});
+squareBlack.addEventListener("mouseout", (e) => {
+  xAxis.innerHTML = "I am out";
+  yAxis.innerHTML = "";
+});
+
+document.addEventListener("mousemove", (e) => {
+  cursor.style.left = e.pageX + "px";
+  cursor.style.top = e.pageY + "px";
+});
