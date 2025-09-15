@@ -889,7 +889,12 @@ const number = document.querySelector("#number");
 const btn = document.querySelector("#btnCount");
 
 let n = localStorage.getItem("count");
-n = parseInt(n);
+if (n === null || isNaN(parseInt(n))) {
+  n = 0;
+} else {
+  n = parseInt(n);
+}
+
 number.innerHTML = n;
 
 btn.addEventListener("click", () => {
@@ -921,10 +926,10 @@ btnSubmit.addEventListener("click", () => {
     alert("Please fill out the form");
   }
   const at = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z])$/;
-  if (at.test(mailInput.value) == false) {
+  if (at.test(mailInput.value) == false && nameInput.value !== "") {
     alert("Некорректный email. Он должен содержать '@'");
   }
-  if (nameInput.value !== "" && mailInput.value !== "") {
+  if (nameInput.value !== "" && at.test(mailInput.value) == true) {
     alert("Information about successfully submit!");
   }
 });
