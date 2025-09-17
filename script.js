@@ -885,100 +885,205 @@
 ///// LocalStorage & Event Listeners /////
 
 ///// Counter
-const number = document.querySelector("#number");
-const btn = document.querySelector("#btnCount");
+// const number = document.querySelector("#number");
+// const btn = document.querySelector("#btnCount");
 
-let n = localStorage.getItem("count");
-if (n === null || isNaN(parseInt(n))) {
-  n = 0;
-} else {
-  n = parseInt(n);
+// let n = localStorage.getItem("count");
+// if (n === null || isNaN(parseInt(n))) {
+//   n = 0;
+// } else {
+//   n = parseInt(n);
+// }
+
+// number.innerHTML = n;
+
+// btn.addEventListener("click", () => {
+//   n++;
+//   number.innerHTML = n;
+//   localStorage.setItem("count", n);
+// });
+
+// ///// Input value
+// const btnValue = document.querySelector("#btnValue");
+// const nameL = document.querySelector("#name");
+// const input = document.querySelector("#input");
+
+// let savedName = localStorage.getItem("name");
+// input.value = savedName;
+
+// btnValue.addEventListener("click", () => {
+//   let n = input.value;
+//   localStorage.setItem("name", n);
+// });
+
+// ///// Form submit
+// const nameInput = document.querySelector("#nameSubmit");
+// const mailInput = document.querySelector("#mailSubmit");
+// const btnSubmit = document.querySelector("#btnSubmit");
+
+// btnSubmit.addEventListener("click", () => {
+//   if (nameInput.value === "" || mailInput.value === "") {
+//     alert("Please fill out the form");
+//   }
+//   const at = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z])$/;
+//   if (at.test(mailInput.value) == false && nameInput.value !== "") {
+//     alert("Некорректный email. Он должен содержать '@'");
+//   }
+//   if (nameInput.value !== "" && at.test(mailInput.value) == true) {
+//     alert("Information about successfully submit!");
+//   }
+// });
+
+// ///// Translator
+
+// const btnUz = document.querySelector("#btnUz");
+// const btnEn = document.querySelector("#btnEn");
+// const textTran = document.querySelector("#textTran");
+
+// function saved() {
+//   let savedLan = localStorage.getItem("lan");
+//   if (savedLan === "uzb") {
+//     textTran.innerHTML = "Salom, Xush kelibsiz";
+//   }
+//   if (savedLan === "eng") {
+//     textTran.innerHTML = "Hello, Welcome";
+//   }
+// }
+
+// saved();
+
+// btnUz.addEventListener("click", () => {
+//   let l = "uzb";
+//   localStorage.setItem("lan", l);
+//   saved();
+// });
+
+// btnEn.addEventListener("click", () => {
+//   let l = "eng";
+//   localStorage.setItem("lan", l);
+//   saved();
+// });
+
+// ///// Coordinates
+// const cursor = document.querySelector(".cursor");
+// const squareBlack = document.querySelector("#square");
+// const xAxis = document.querySelector("#xaxis");
+// const yAxis = document.querySelector("#yaxis");
+// squareBlack.addEventListener("mousemove", (e) => {
+//   xAxis.innerHTML = "Axis X:" + e.offsetX;
+//   yAxis.innerHTML = "Axis Y:" + e.offsetY;
+// });
+// squareBlack.addEventListener("mouseout", (e) => {
+//   xAxis.innerHTML = "I am out";
+//   yAxis.innerHTML = "";
+// });
+
+// document.addEventListener("mousemove", (e) => {
+//   cursor.style.left = e.pageX + "px";
+//   cursor.style.top = e.pageY + "px";
+// });
+
+const cards = document.querySelector("#cards");
+
+async function getUserData() {
+  try {
+    fetch("https://fakestoreapi.com/products?offset=0&limit=10")
+      .then((res) => res.json())
+      .then((products) => {
+        const cards = document.querySelector("#cards");
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const cartList = (product) => {
+          return cart.some((item) => item.id === product.id);
+        };
+
+        products.forEach((product) => {
+          const btncon = cartList(product) ? "Added" : "Add to Cart";
+          console.log(product);
+
+          const star = `<div class="w-4 h-4 overflow-hidden
+    bg-[#FFA858]
+    [mask:url(/images/star.svg)] 
+    [mask-repeat:no-repeat]
+    [mask-position:center] 
+    [mask-size:cover]"> </div>`;
+          const empty = `<div class="w-4 h-4 overflow-hidden
+    bg-gray-500
+    [mask:url(/images/star.svg)] 
+    [mask-repeat:no-repeat]
+    [mask-position:center] 
+    [mask-size:cover]"> </div>`;
+          let halfs = product.rating.rate - Math.round(product.rating.rate);
+          let l = Math.round(halfs * 10);
+          l = l < 0 ? l + 10 : l;
+          l = l < 0 ? l + 10 : l === 1 ? 10 : l;
+          l = l < 0 ? l + 10 : l === 0 ? 10 : l;
+
+          let halfs2 = 100 - Math.round(l * 10);
+
+          const half = `<div class="w-4 h-4 overflow-hidden
+    bg-[linear-gradient(to_right,#FFA858_0_${Math.round(
+      l * 10
+    )}%,gray_${halfs2}%_100%)]
+    [mask:url(/images/star.svg)] 
+    [mask-repeat:no-repeat]
+    [mask-position:center] 
+    [mask-size:100%_100%]"> </div>`;
+          function s(e) {
+            let stars = star.repeat(Math.round(e) - 1);
+            let emptys = empty.repeat(5 - Math.round(e));
+            return stars + half + emptys;
+          }
+
+          const card = document.createElement("div");
+          card.className = "bg-[#F9F8F8] p-7 rounded-4xl max-w-[335px]";
+
+          card.innerHTML = `
+        <p
+            class="text-sm font-semibold text-white inline py-1 px-3 capitalize bg-[#274C5B] rounded-lg"
+          >
+            ${product.category}
+          </p>
+          <div class="flex items-center h-[300px] p-6">
+            <img
+              class="object-contain object-center w-full h-full"
+              src=${product.image}
+              alt="broccoli"
+            />
+          </div>
+
+          <p
+            class="text-xl font-semibold text-[#274C5B] border-b border-gray-300 pb-3 mb-1.5 truncate"
+          >
+            ${product.description}
+          </p>
+          <div class="flex justify-between items-center">
+            <span class="flex items-center gap-1">
+              <p class="text-sm text-[#B8B8B8] font-semibold line-through">$${Math.floor(
+                product.price + 9.9
+              )}.00</p>
+              <p class="text-lg text-[#274C5B] font-bold">$${product.price}</p>
+            </span>
+          </div>
+          <button id="btn" class="btn px-3 py-1 bg-[#274C5B] rounded-lg text-white mt-5 font-semibold cursor-pointer">${btncon}</button>
+      `;
+
+          cards.appendChild(card);
+          const btn = card.querySelector(".btn");
+          btn.addEventListener("click", () => {
+            const index = cart.findIndex((item) => item.id === product.id);
+            if (index === -1) {
+              btn.textContent = "Added";
+              cart.push(product);
+            } else {
+              btn.textContent = "Add to Cart";
+              cart.splice(index, 1);
+            }
+            localStorage.setItem("cart", JSON.stringify(cart));
+          });
+        });
+      });
+  } catch (error) {
+    console.error("Error fetching user data:", error);
+  }
 }
-
-number.innerHTML = n;
-
-btn.addEventListener("click", () => {
-  n++;
-  number.innerHTML = n;
-  localStorage.setItem("count", n);
-});
-
-///// Input value
-const btnValue = document.querySelector("#btnValue");
-const nameL = document.querySelector("#name");
-const input = document.querySelector("#input");
-
-let savedName = localStorage.getItem("name");
-input.value = savedName;
-
-btnValue.addEventListener("click", () => {
-  let n = input.value;
-  localStorage.setItem("name", n);
-});
-
-///// Form submit
-const nameInput = document.querySelector("#nameSubmit");
-const mailInput = document.querySelector("#mailSubmit");
-const btnSubmit = document.querySelector("#btnSubmit");
-
-btnSubmit.addEventListener("click", () => {
-  if (nameInput.value === "" || mailInput.value === "") {
-    alert("Please fill out the form");
-  }
-  const at = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z])$/;
-  if (at.test(mailInput.value) == false && nameInput.value !== "") {
-    alert("Некорректный email. Он должен содержать '@'");
-  }
-  if (nameInput.value !== "" && at.test(mailInput.value) == true) {
-    alert("Information about successfully submit!");
-  }
-});
-
-///// Translator
-
-const btnUz = document.querySelector("#btnUz");
-const btnEn = document.querySelector("#btnEn");
-const textTran = document.querySelector("#textTran");
-
-function saved() {
-  let savedLan = localStorage.getItem("lan");
-  if (savedLan === "uzb") {
-    textTran.innerHTML = "Salom, Xush kelibsiz";
-  }
-  if (savedLan === "eng") {
-    textTran.innerHTML = "Hello, Welcome";
-  }
-}
-
-saved();
-
-btnUz.addEventListener("click", () => {
-  let l = "uzb";
-  localStorage.setItem("lan", l);
-  saved();
-});
-
-btnEn.addEventListener("click", () => {
-  let l = "eng";
-  localStorage.setItem("lan", l);
-  saved();
-});
-
-///// Coordinates
-const cursor = document.querySelector(".cursor");
-const squareBlack = document.querySelector("#square");
-const xAxis = document.querySelector("#xaxis");
-const yAxis = document.querySelector("#yaxis");
-squareBlack.addEventListener("mousemove", (e) => {
-  xAxis.innerHTML = "Axis X:" + e.offsetX;
-  yAxis.innerHTML = "Axis Y:" + e.offsetY;
-});
-squareBlack.addEventListener("mouseout", (e) => {
-  xAxis.innerHTML = "I am out";
-  yAxis.innerHTML = "";
-});
-
-document.addEventListener("mousemove", (e) => {
-  cursor.style.left = e.pageX + "px";
-  cursor.style.top = e.pageY + "px";
-});
+getUserData();
